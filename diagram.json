@@ -3,69 +3,18 @@
   "author": "Smart Study Station",
   "editor": "wokwi",
   "parts": [
-    {
-      "type": "board-esp32-devkit-c-v4",
-      "id": "esp",
-      "top": 60,
-      "left": 20,
-      "attrs": {}
-    },
-    {
-      "type": "wokwi-lcd1602",
-      "id": "lcd1",
-      "top": -110,
-      "left": -30,
-      "attrs": { "pins": "i2c" }
-    },
-    {
-      "type": "wokwi-membrane-keypad",
-      "id": "keypad1",
-      "top": 30,
-      "left": 210,
-      "attrs": {}
-    },
-    {
-      "type": "wokwi-hc-sr04",
-      "id": "ultrasonic1",
-      "top": -120,
-      "left": -280,
-      "attrs": { "distance": "120" }
-    },
-    {
-      "type": "wokwi-photoresistor-sensor",
-      "id": "ldr1",
-      "top": 80,
-      "left": -250,
-      "attrs": {}
-    },
-    {
-      "type": "wokwi-potentiometer",
-      "id": "pot1",
-      "top": 190,
-      "left": -230,
-      "attrs": {}
-    },
-    {
-      "type": "wokwi-led",
-      "id": "led1",
-      "top": 270,
-      "left": -120,
-      "attrs": { "color": "white", "label": "Desk Lamp" }
-    },
-    {
-      "type": "wokwi-resistor",
-      "id": "r1",
-      "top": 310,
-      "left": -75,
-      "attrs": { "value": "220" }
-    },
-    {
-      "type": "wokwi-buzzer",
-      "id": "bz1",
-      "top": 250,
-      "left": 140,
-      "attrs": { "volume": "0.2" }
-    }
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 60, "left": 20, "attrs": {} },
+    { "type": "wokwi-lcd1602", "id": "lcd1", "top": -120, "left": -20, "attrs": { "pins": "i2c" } },
+    { "type": "wokwi-membrane-keypad", "id": "keypad1", "top": 20, "left": 230, "attrs": {} },
+    { "type": "wokwi-hc-sr04", "id": "ultrasonic1", "top": -130, "left": -280, "attrs": { "distance": "120" } },
+    { "type": "wokwi-photoresistor-sensor", "id": "ldr1", "top": 40, "left": -280, "attrs": {} },
+    { "type": "wokwi-potentiometer", "id": "pot1", "top": 150, "left": -260, "attrs": { "label": "Dimmer" } },
+    { "type": "wokwi-potentiometer", "id": "pot_noise", "top": 260, "left": -260, "attrs": { "label": "Noise Sim" } },
+    { "type": "wokwi-dht22", "id": "dht1", "top": -120, "left": 240, "attrs": { "temperature": "28.5", "humidity": "65" } },
+    { "type": "wokwi-gas-sensor", "id": "gas1", "top": 260, "left": 240, "attrs": {} },
+    { "type": "wokwi-led", "id": "led1", "top": 260, "left": -120, "attrs": { "color": "white", "label": "Lamp" } },
+    { "type": "wokwi-resistor", "id": "r1", "top": 300, "left": -75, "attrs": { "value": "220" } },
+    { "type": "wokwi-buzzer", "id": "bz1", "top": 270, "left": 120, "attrs": { "volume": "0.2" } }
   ],
   "connections": [
     [ "esp:GND.1", "lcd1:GND", "black", [ "h0" ] ],
@@ -86,6 +35,18 @@
     [ "pot1:GND", "esp:GND.1", "black", [ "v0" ] ],
     [ "pot1:SIG", "esp:32", "cyan", [ "v0" ] ],
 
+    [ "pot_noise:VCC", "esp:3V3", "red", [ "v0" ] ],
+    [ "pot_noise:GND", "esp:GND.1", "black", [ "v0" ] ],
+    [ "pot_noise:SIG", "esp:VP", "pink", [ "v0" ] ],
+
+    [ "dht1:VCC", "esp:3V3", "red", [ "v0" ] ],
+    [ "dht1:GND", "esp:GND.2", "black", [ "v0" ] ],
+    [ "dht1:SDA", "esp:23", "limegreen", [ "v0" ] ],
+
+    [ "gas1:VCC", "esp:3V3", "red", [ "v0" ] ],
+    [ "gas1:GND", "esp:GND.2", "black", [ "v0" ] ],
+    [ "gas1:AOUT", "esp:VN", "brown", [ "v0" ] ],
+
     [ "esp:2", "r1:1", "gold", [ "v0" ] ],
     [ "r1:2", "led1:A", "gold", [ "v0" ] ],
     [ "led1:C", "esp:GND.2", "black", [ "v0" ] ],
@@ -94,13 +55,13 @@
     [ "bz1:2", "esp:4", "magenta", [ "v0" ] ],
 
     [ "keypad1:R1", "esp:13", "green", [ "v0" ] ],
-    [ "keypad1:R2", "esp:12", "green", [ "v0" ] ],
+    [ "keypad1:R2", "esp:18", "green", [ "v0" ] ],
     [ "keypad1:R3", "esp:14", "green", [ "v0" ] ],
     [ "keypad1:R4", "esp:27", "green", [ "v0" ] ],
     [ "keypad1:C1", "esp:26", "blue", [ "v0" ] ],
     [ "keypad1:C2", "esp:25", "blue", [ "v0" ] ],
     [ "keypad1:C3", "esp:33", "blue", [ "v0" ] ],
-    [ "keypad1:C4", "esp:15", "blue", [ "v0" ] ]
+    [ "keypad1:C4", "esp:19", "blue", [ "v0" ] ]
   ],
   "dependencies": {}
 }

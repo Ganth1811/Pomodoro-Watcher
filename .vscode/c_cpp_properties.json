@@ -8,10 +8,12 @@
         {
             "name": "PlatformIO",
             "includePath": [
-                "C:/Users/HP Victus/Documents/PlatformIO/Projects/pomodoro/include",
-                "C:/Users/HP Victus/Documents/PlatformIO/Projects/pomodoro/src",
-                "C:/Users/HP Victus/Documents/PlatformIO/Projects/pomodoro/.pio/libdeps/esp32doit-devkit-v1/Keypad/src",
-                "C:/Users/HP Victus/Documents/PlatformIO/Projects/pomodoro/.pio/libdeps/esp32doit-devkit-v1/LiquidCrystal_I2C",
+                "C:/Study/IoT/ESP/include",
+                "C:/Study/IoT/ESP/src",
+                "C:/Study/IoT/ESP/.pio/libdeps/esp32doit-devkit-v1/DHT sensor library",
+                "C:/Study/IoT/ESP/.pio/libdeps/esp32doit-devkit-v1/Adafruit Unified Sensor",
+                "C:/Study/IoT/ESP/.pio/libdeps/esp32doit-devkit-v1/Keypad/src",
+                "C:/Study/IoT/ESP/.pio/libdeps/esp32doit-devkit-v1/LiquidCrystal_I2C",
                 "C:/Users/HP Victus/.platformio/packages/framework-arduinoespressif32/libraries/Wire/src",
                 "C:/Users/HP Victus/.platformio/packages/framework-arduinoespressif32/cores/esp32",
                 "C:/Users/HP Victus/.platformio/packages/framework-arduinoespressif32-esp32-libs/dio_qspi/include",
@@ -375,10 +377,12 @@
             "browse": {
                 "limitSymbolsToIncludedHeaders": true,
                 "path": [
-                    "C:/Users/HP Victus/Documents/PlatformIO/Projects/pomodoro/include",
-                    "C:/Users/HP Victus/Documents/PlatformIO/Projects/pomodoro/src",
-                    "C:/Users/HP Victus/Documents/PlatformIO/Projects/pomodoro/.pio/libdeps/esp32doit-devkit-v1/Keypad/src",
-                    "C:/Users/HP Victus/Documents/PlatformIO/Projects/pomodoro/.pio/libdeps/esp32doit-devkit-v1/LiquidCrystal_I2C",
+                    "C:/Study/IoT/ESP/include",
+                    "C:/Study/IoT/ESP/src",
+                    "C:/Study/IoT/ESP/.pio/libdeps/esp32doit-devkit-v1/DHT sensor library",
+                    "C:/Study/IoT/ESP/.pio/libdeps/esp32doit-devkit-v1/Adafruit Unified Sensor",
+                    "C:/Study/IoT/ESP/.pio/libdeps/esp32doit-devkit-v1/Keypad/src",
+                    "C:/Study/IoT/ESP/.pio/libdeps/esp32doit-devkit-v1/LiquidCrystal_I2C",
                     "C:/Users/HP Victus/.platformio/packages/framework-arduinoespressif32/libraries/Wire/src",
                     "C:/Users/HP Victus/.platformio/packages/framework-arduinoespressif32/cores/esp32",
                     "C:/Users/HP Victus/.platformio/packages/framework-arduinoespressif32-esp32-libs/dio_qspi/include",

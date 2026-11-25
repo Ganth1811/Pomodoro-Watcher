@@ -132,6 +132,55 @@
         "tab": ""
     },
     {
+        "id": "e2e81ede2784c3fd",
+        "type": "ui-spacer",
+        "group": "161a0531c965b9da",
+        "name": "spacer",
+        "tooltip": "",
+        "order": 7,
+        "width": 1,
+        "height": 1,
+        "className": ""
+    },
+    {
+        "id": "fe33343257c3a25c",
+        "type": "ui-spacer",
+        "group": "161a0531c965b9da",
+        "name": "spacer",
+        "tooltip": "",
+        "order": 8,
+        "width": 1,
+        "height": 1,
+        "className": ""
+    },
+    {
+        "id": "d606f966de2652b5",
+        "type": "ui-spacer",
+        "group": "161a0531c965b9da",
+        "name": "spacer",
+        "tooltip": "",
+        "order": 9,
+        "width": 1,
+        "height": 1,
+        "className": ""
+    },
+    {
+        "id": "33e35431cdeb05fe",
+        "type": "ui-group",
+        "name": "States",
+        "page": "47e06b0a0ffa8bf8",
+        "width": 6,
+        "height": 1,
+        "order": 2,
+        "showTitle": true,
+        "className": "",
+        "visible": "true",
+        "disabled": "false",
+        "groupType": "default",
+        "keepLoaded": false,
+        "tab": ""
+    },
+    {
         "id": "0cf0b05b84de094c",
         "type": "mqtt in",
         "z": "1e0103913cca0c1d",
@@ -164,17 +213,29 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 340,
+        "x": 320,
         "y": 160,
         "wires": [
             [
-                "b2e0a24e9efb6aee"
+                "b2e0a24e9efb6aee",
+                "fb95693227421446"
             ],
-            [],
-            [],
-            [],
-            [],
-            []
+            [
+                "599db495374b70c0"
+            ],
+            [
+                "a93a61c3181b4652",
+                "e661552e61e007a9"
+            ],
+            [
+                "6445bb9df2630254"
+            ],
+            [
+                "98a6fb6dadcbb6ac"
+            ],
+            [
+                "6ec713b5c69b7d93"
+            ]
         ]
     },
     {
@@ -225,10 +286,344 @@
         "styleRounded": true,
         "styleGlow": false,
         "className": "",
-        "x": 510,
+        "x": 550,
+        "y": 40,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "599db495374b70c0",
+        "type": "ui-gauge",
+        "z": "1e0103913cca0c1d",
+        "name": "Moisture",
+        "group": "161a0531c965b9da",
+        "order": 2,
+        "value": "payload",
+        "valueType": "msg",
+        "width": 3,
+        "height": 3,
+        "gtype": "gauge-half",
+        "gstyle": "needle",
+        "title": "Moisture",
+        "alwaysShowTitle": false,
+        "floatingTitlePosition": "top-left",
+        "units": "units",
+        "icon": "",
+        "prefix": "",
+        "suffix": "%",
+        "segments": [
+            {
+                "from": "0",
+                "color": "#5cd65c",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "40",
+                "color": "#ffc800",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "80",
+                "color": "#ea5353",
+                "text": "",
+                "textType": "label"
+            }
+        ],
+        "min": 0,
+        "max": "100",
+        "sizeThickness": 16,
+        "sizeGap": 4,
+        "sizeKeyThickness": 8,
+        "styleRounded": true,
+        "styleGlow": false,
+        "className": "",
+        "x": 560,
+        "y": 120,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "a93a61c3181b4652",
+        "type": "ui-gauge",
+        "z": "1e0103913cca0c1d",
+        "name": "Noise Level",
+        "group": "161a0531c965b9da",
+        "order": 3,
+        "value": "payload",
+        "valueType": "msg",
+        "width": 3,
+        "height": 3,
+        "gtype": "gauge-half",
+        "gstyle": "needle",
+        "title": "Noise Level",
+        "alwaysShowTitle": false,
+        "floatingTitlePosition": "top-left",
+        "units": "units",
+        "icon": "",
+        "prefix": "",
+        "suffix": "%",
+        "segments": [
+            {
+                "from": "0",
+                "color": "#5cd65c",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "45",
+                "color": "#ffc800",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "60",
+                "color": "#ea5353",
+                "text": "",
+                "textType": "label"
+            }
+        ],
+        "min": 0,
+        "max": "100",
+        "sizeThickness": 16,
+        "sizeGap": 4,
+        "sizeKeyThickness": 8,
+        "styleRounded": true,
+        "styleGlow": false,
+        "className": "",
+        "x": 570,
+        "y": 160,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "6445bb9df2630254",
+        "type": "ui-gauge",
+        "z": "1e0103913cca0c1d",
+        "name": "Smoke Level",
+        "group": "161a0531c965b9da",
+        "order": 4,
+        "value": "payload",
+        "valueType": "msg",
+        "width": 3,
+        "height": 3,
+        "gtype": "gauge-half",
+        "gstyle": "needle",
+        "title": "Noise Level",
+        "alwaysShowTitle": false,
+        "floatingTitlePosition": "top-left",
+        "units": "units",
+        "icon": "",
+        "prefix": "",
+        "suffix": "ADC",
+        "segments": [
+            {
+                "from": "0",
+                "color": "#5cd65c",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "1800",
+                "color": "#ffc800",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "2200",
+                "color": "#ea5353",
+                "text": "",
+                "textType": "label"
+            }
+        ],
+        "min": 0,
+        "max": "4095",
+        "sizeThickness": 16,
+        "sizeGap": 4,
+        "sizeKeyThickness": 8,
+        "styleRounded": true,
+        "styleGlow": false,
+        "className": "",
+        "x": 590,
+        "y": 240,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "fb95693227421446",
+        "type": "ui-chart",
+        "z": "1e0103913cca0c1d",
+        "group": "161a0531c965b9da",
+        "name": "Temperature Chart",
+        "label": "Temp chart",
+        "order": 5,
+        "chartType": "line",
+        "category": "temperature",
+        "categoryType": "str",
+        "xAxisLabel": "Time",
+        "xAxisProperty": "",
+        "xAxisPropertyType": "timestamp",
+        "xAxisType": "time",
+        "xAxisFormat": "",
+        "xAxisFormatType": "auto",
+        "xmin": "",
+        "xmax": "",
+        "yAxisLabel": "Temperature",
+        "yAxisProperty": "payload",
+        "yAxisPropertyType": "msg",
+        "ymin": "0",
+        "ymax": "50",
+        "bins": 10,
+        "action": "append",
+        "stackSeries": false,
+        "pointShape": "circle",
+        "pointRadius": 4,
+        "showLegend": true,
+        "removeOlder": "10",
+        "removeOlderUnit": "60",
+        "removeOlderPoints": "",
+        "colors": [
+            "#0095ff",
+            "#ff0000",
+            "#ff7f0e",
+            "#2ca02c",
+            "#a347e1",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "textColor": [
+            "#666666"
+        ],
+        "textColorDefault": true,
+        "gridColor": [
+            "#e5e5e5"
+        ],
+        "gridColorDefault": true,
+        "width": 6,
+        "height": "4",
+        "className": "",
+        "interpolation": "linear",
+        "x": 570,
         "y": 80,
         "wires": [
             []
         ]
+    },
+    {
+        "id": "e661552e61e007a9",
+        "type": "ui-chart",
+        "z": "1e0103913cca0c1d",
+        "group": "161a0531c965b9da",
+        "name": "Noise Chart",
+        "label": "Noise chart",
+        "order": 6,
+        "chartType": "line",
+        "category": "noise",
+        "categoryType": "str",
+        "xAxisLabel": "Time",
+        "xAxisProperty": "",
+        "xAxisPropertyType": "timestamp",
+        "xAxisType": "time",
+        "xAxisFormat": "",
+        "xAxisFormatType": "auto",
+        "xmin": "",
+        "xmax": "",
+        "yAxisLabel": "Noise Level",
+        "yAxisProperty": "payload",
+        "yAxisPropertyType": "msg",
+        "ymin": "0",
+        "ymax": "100",
+        "bins": 10,
+        "action": "append",
+        "stackSeries": false,
+        "pointShape": "circle",
+        "pointRadius": 4,
+        "showLegend": true,
+        "removeOlder": "10",
+        "removeOlderUnit": "60",
+        "removeOlderPoints": "",
+        "colors": [
+            "#0095ff",
+            "#ff0000",
+            "#ff7f0e",
+            "#2ca02c",
+            "#a347e1",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "textColor": [
+            "#666666"
+        ],
+        "textColorDefault": true,
+        "gridColor": [
+            "#e5e5e5"
+        ],
+        "gridColorDefault": true,
+        "width": 6,
+        "height": "4",
+        "className": "",
+        "interpolation": "linear",
+        "x": 570,
+        "y": 200,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "98a6fb6dadcbb6ac",
+        "type": "ui-text",
+        "z": "1e0103913cca0c1d",
+        "group": "33e35431cdeb05fe",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "Current State",
+        "label": "Trạng Thái",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "style": true,
+        "font": "Helvetica, sans-serif",
+        "fontSize": "20",
+        "color": "#00e193",
+        "wrapText": false,
+        "className": "",
+        "value": "payload",
+        "valueType": "msg",
+        "x": 590,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "6ec713b5c69b7d93",
+        "type": "ui-text",
+        "z": "1e0103913cca0c1d",
+        "group": "33e35431cdeb05fe",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "Monitor",
+        "label": "Giám Sát",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "style": true,
+        "font": "Helvetica, sans-serif",
+        "fontSize": "20",
+        "color": "#e10000",
+        "wrapText": false,
+        "className": "",
+        "value": "payload",
+        "valueType": "msg",
+        "x": 580,
+        "y": 360,
+        "wires": []
     }
 ]

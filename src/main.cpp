@@ -231,7 +231,7 @@ namespace Hardware
     }
     if (readLightRaw() > LDR_DARK_THRESHOLD)
     {
-      int pwmVal = map(analogRead(PIN_POT_DIMMER), 0, 4095, 25, 255);
+      int pwmVal = map(analogRead(PIN_POT_DIMMER), 0, 4095, 0, 255);
       analogWrite(PIN_LED, pwmVal);
       return pwmVal;
     }

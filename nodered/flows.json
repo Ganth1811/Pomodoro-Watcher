@@ -1,0 +1,234 @@
+[
+    {
+        "id": "1e0103913cca0c1d",
+        "type": "tab",
+        "label": "Pomodoro",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "83b065831855cf5e",
+        "type": "mqtt-broker",
+        "name": "MQTT BROKER",
+        "broker": "y1f77411.ala.asia-southeast1.emqxsl.com",
+        "port": "8883",
+        "tls": "",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": true,
+        "protocolVersion": 4,
+        "keepalive": 60,
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "b46d6c86eafb4502",
+        "type": "ui-base",
+        "name": "My Dashboard",
+        "path": "/dashboard",
+        "appIcon": "",
+        "includeClientData": true,
+        "acceptsClientConfig": [
+            "ui-notification",
+            "ui-control"
+        ],
+        "showPathInSidebar": false,
+        "headerContent": "page",
+        "navigationStyle": "default",
+        "titleBarStyle": "default",
+        "showReconnectNotification": true,
+        "notificationDisplayTime": 1,
+        "showDisconnectNotification": true,
+        "allowInstall": false
+    },
+    {
+        "id": "4acede2957235524",
+        "type": "ui-theme",
+        "name": "Default Theme",
+        "colors": {
+            "surface": "#fcfcfd",
+            "primary": "#0d74ce",
+            "bgPage": "#f9f9fb",
+            "groupBg": "#ffffff",
+            "groupOutline": "#d9d9e0"
+        },
+        "sizes": {
+            "density": "default",
+            "pagePadding": "12px",
+            "groupGap": "12px",
+            "groupBorderRadius": "4px",
+            "widgetGap": "12px"
+        }
+    },
+    {
+        "id": "47e06b0a0ffa8bf8",
+        "type": "ui-page",
+        "name": "Smart Study Desk",
+        "ui": "b46d6c86eafb4502",
+        "path": "/page1",
+        "icon": "home",
+        "layout": "grid",
+        "theme": "4acede2957235524",
+        "breakpoints": [
+            {
+                "name": "Default",
+                "px": "0",
+                "cols": "3"
+            },
+            {
+                "name": "Tablet",
+                "px": "576",
+                "cols": "6"
+            },
+            {
+                "name": "Small Desktop",
+                "px": "768",
+                "cols": "9"
+            },
+            {
+                "name": "Desktop",
+                "px": "1024",
+                "cols": "12"
+            }
+        ],
+        "tabs": [],
+        "order": 1,
+        "className": "",
+        "visible": "true",
+        "disabled": "false"
+    },
+    {
+        "id": "161a0531c965b9da",
+        "type": "ui-group",
+        "name": "Environment",
+        "page": "47e06b0a0ffa8bf8",
+        "width": 6,
+        "height": 1,
+        "order": 1,
+        "showTitle": true,
+        "className": "",
+        "visible": "true",
+        "disabled": "false",
+        "groupType": "default",
+        "keepLoaded": false,
+        "tab": ""
+    },
+    {
+        "id": "0cf0b05b84de094c",
+        "type": "mqtt in",
+        "z": "1e0103913cca0c1d",
+        "name": "",
+        "topic": "study_desk/telemetry",
+        "qos": "2",
+        "datatype": "json",
+        "broker": "83b065831855cf5e",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 140,
+        "y": 160,
+        "wires": [
+            [
+                "88a494124e38b2a4"
+            ]
+        ]
+    },
+    {
+        "id": "88a494124e38b2a4",
+        "type": "function",
+        "z": "1e0103913cca0c1d",
+        "name": "function 1",
+        "func": "const d = msg.payload;\nconst states = [\"NGHI (IDLE)\", \"MAN HINH CHAO\", \"CAI DAT\", \"CAI DAT\", \"CAI DAT\", \"DANG HOC\", \"TAM DUNG\"];\n\nreturn [\n    { payload: d.temp },                                // Out 1 -> ui-gauge (Nhiệt độ °C) & ui-chart\n    { payload: d.hum },                                 // Out 2 -> ui-gauge (Độ ẩm %)\n    { payload: Math.round((d.noise / 4095) * 100) },    // Out 3 -> ui-gauge (Độ ồn %) & ui-chart\n    { payload: d.gas },                                 // Out 4 -> ui-gauge (Khí Gas / Báo cháy)\n    { payload: states[d.state] || \"UNKNOWN\" },          // Out 5 -> ui-text (Trạng thái hiện tại)\n    { payload: `Rời bàn: ${d.leaves} lần | Ồn: ${d.noise_alerts} lần | Đèn: ${Math.round(d.lamp / 255 * 100)}%` } // Out 6 -> ui-text\n];",
+        "outputs": 6,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 340,
+        "y": 160,
+        "wires": [
+            [
+                "b2e0a24e9efb6aee"
+            ],
+            [],
+            [],
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "b2e0a24e9efb6aee",
+        "type": "ui-gauge",
+        "z": "1e0103913cca0c1d",
+        "name": "Temperature",
+        "group": "161a0531c965b9da",
+        "order": 1,
+        "value": "payload",
+        "valueType": "msg",
+        "width": 3,
+        "height": 3,
+        "gtype": "gauge-half",
+        "gstyle": "needle",
+        "title": "Temperature",
+        "alwaysShowTitle": false,
+        "floatingTitlePosition": "top-left",
+        "units": "units",
+        "icon": "",
+        "prefix": "",
+        "suffix": "°C",
+        "segments": [
+            {
+                "from": "0",
+                "color": "#5cd65c",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "25",
+                "color": "#ffc800",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "33",
+                "color": "#ea5353",
+                "text": "",
+                "textType": "label"
+            }
+        ],
+        "min": 0,
+        "max": "50",
+        "sizeThickness": 16,
+        "sizeGap": 4,
+        "sizeKeyThickness": 8,
+        "styleRounded": true,
+        "styleGlow": false,
+        "className": "",
+        "x": 510,
+        "y": 80,
+        "wires": [
+            []
+        ]
+    }
+]
